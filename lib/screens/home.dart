@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:untitled/screens/profilepage.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,9 +13,15 @@ class Home extends StatelessWidget {
         actions: <Widget>[
           CircleAvatar(
               backgroundImage: NetworkImage(
-                  "https://randomuser.me/api/portraits/women/44.jpg"))
+                  "https://randomuser.me/api/portraits/women/44.jpg")),
         ],
-        leading: Icon(Icons.menu),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ProfilePage()));
+          },
+          icon: Icon(Icons.menu),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -24,8 +31,7 @@ class Home extends StatelessWidget {
             children: [
               Text(
                 "Hola diana",
-                style:Theme.of(context).textTheme.headline4,
-
+                style: Theme.of(context).textTheme.headline4,
               ),
               Text(
                 "Come 5 veces al día y permanece hidratada durante el dia",
@@ -33,8 +39,7 @@ class Home extends StatelessWidget {
               ),
               Text(
                 "Mas detalles",
-                style:Theme.of(context).textTheme.bodySmall,
-
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               SizedBox(
                 height: 16,
@@ -111,7 +116,7 @@ class Home extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Inicio',
