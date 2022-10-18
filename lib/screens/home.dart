@@ -18,13 +18,14 @@ class Home extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(18.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Hola diana",
-                style: Theme.of(context).textTheme.headline4,
+                style:Theme.of(context).textTheme.headline4,
+
               ),
               Text(
                 "Come 5 veces al día y permanece hidratada durante el dia",
