@@ -67,9 +67,32 @@ class Home extends StatelessWidget {
                   progressColor: Colors.purple,
                 ),
               ],
-              
+
+
             ),
+
+
           ),
-        ));
+        ),
+        bottomNavigationBar: BottomNavigationBar(items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Inicio',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Buscar',
+            backgroundColor: Colors.green,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Perfil',
+            backgroundColor: Colors.purple,
+          ),
+
+
+        ],),
+    );
   }
 }
