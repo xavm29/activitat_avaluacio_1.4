@@ -21,18 +21,18 @@ class Home extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline4,
                 ),
                 Text(
-                  "text",
-                  style: Theme.of(context).textTheme.headline4,
+                  "Come 5 veces al día y permanece hidratada durante el dia",
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 Text(
                   "Mas detalles",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 Text(
-                  "Utimas novedades",
+                  "Utimas actividades",
                   style: Theme.of(context).textTheme.headline4,
                 ),
                 Card(
@@ -45,7 +45,8 @@ class Home extends StatelessWidget {
                     subtitle: Text(
                       "Ayer 19:20",
                     ),
-                    trailing: Text(" 7200Km"),
+                    trailing: Text(" 7200Km",
+                        style: Theme.of(context).textTheme.headline5),
                   ),
                 ),
                 CircularPercentIndicator(
@@ -53,14 +54,14 @@ class Home extends StatelessWidget {
                   lineWidth: 13.0,
                   animation: true,
                   percent: 0.7,
-                  center: new Text(
+                  center: Text(
                     "70.0%",
                     style: new TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
-                  footer: new Text(
+                  footer: Text(
                     "Sales this week",
-                    style: new TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 17.0),
                   ),
                   circularStrokeCap: CircularStrokeCap.round,
