@@ -9,6 +9,12 @@ class Home extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Fitness Time"),
+          actions:<Widget>[ CircleAvatar(
+        backgroundImage: NetworkImage("https://randomuser.me/api/portraits/women/44.jpg")
+          )],
+          leading: Icon(Icons.menu),
+
+
         ),
         body: SingleChildScrollView(
           child: Padding(
