@@ -7,9 +7,16 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pantalla 2"),
+        title: Text("My Profile"),
         automaticallyImplyLeading: true,
         // leading: Container(),
+      ),
+      body:Column(
+          Center(
+            child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://randomuser.me/api/portraits/women/44.jpg")),
+          ),
       ),
 
     );
