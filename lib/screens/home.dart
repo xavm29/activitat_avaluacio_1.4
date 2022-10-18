@@ -14,15 +14,14 @@ class Home extends StatelessWidget {
             child: Column(
               children: [
                 Row (
-                    children: const Text('Hola Diana')
+                    children: widget(
+                        child: const Text('Hola Diana'))
                 ),
               ],
             ),
           )
-
-
         ,
 
-    )));
+    ));
   }
 }
