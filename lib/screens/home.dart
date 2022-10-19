@@ -29,24 +29,36 @@ class Home extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Hola diana",
-                style: Theme.of(context).textTheme.headline4,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Hola diana",
+                  style: Theme.of(context).textTheme.headline4,
+                ),
               ),
-              Text(
-                "Come 5 veces al día y permanece hidratada durante el dia",
-                style: Theme.of(context).textTheme.bodyMedium,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Come 5 veces al día y permanece hidratada durante el dia",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
-              Text(
-                "Mas detalles",
-                style: Theme.of(context).textTheme.bodySmall,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Mas detalles",
+                  style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Colors.blue),
+                ),
               ),
               SizedBox(
                 height: 16,
               ),
-              Text(
-                "Utimas actividades",
-                style: Theme.of(context).textTheme.headline4,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Utimas actividades",
+                  style: Theme.of(context).textTheme.headline4,
+                ),
               ),
               Card(
                 child: ListTile(
@@ -92,22 +104,25 @@ class Home extends StatelessWidget {
               ),
               Center(
                 child: Container(
-                  child: CircularPercentIndicator(
-                    radius: 60.0,
-                    lineWidth: 13.0,
-                    animation: true,
-                    percent: 0.7,
-                    center: Text(
-                      "70.0%",
-                      style: new TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircularPercentIndicator(
+                      radius: 60.0,
+                      lineWidth: 13.0,
+                      animation: true,
+                      percent: 0.7,
+                      center: Text(
+                        "70.0%",
+                        style: new TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20.0),
+                      ),
+                      footer: Text(
+                        "Objetivo mensual",
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
+                      circularStrokeCap: CircularStrokeCap.round,
+                      progressColor: Theme.of(context).primaryColor,
                     ),
-                    footer: Text(
-                      "Objetivo mensual",
-                      style: Theme.of(context).textTheme.headline5,
-                    ),
-                    circularStrokeCap: CircularStrokeCap.round,
-                    progressColor: Theme.of(context).primaryColor,
                   ),
                 ),
               ),

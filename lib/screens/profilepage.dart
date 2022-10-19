@@ -10,15 +10,22 @@ class ProfilePage extends StatelessWidget {
         title: Text("My Profile"),
         automaticallyImplyLeading: true,
         // leading: Container(),
-      ),
-      body:Column(
-          Center(
-            child: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://randomuser.me/api/portraits/women/44.jpg")),
-          ),
+       ),
+      body: Center(
+        child: Column(
+          children: [
+            CircleAvatar(
+              backgroundImage:
+              NetworkImage('https://randomuser.me/api/portraits/women/44.jpg'),radius: 100
+            ),
+            Text("Antonia Font",
+            style: Theme.of(context).textTheme.headline4,),
+          Text("Since 20 April 2022",
+          style: Theme.of(context).textTheme.bodyMedium,),
+
+          ],
+        ),
       ),
 
     );
-  }
-}
+  }}
