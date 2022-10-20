@@ -12,14 +12,13 @@ class Home extends StatelessWidget {
         title: const Text("Fitness Time"),
         actions: <Widget>[
           InkWell(
-            onTap: (){
+            onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const ProfilePage()));
             },
             child: const Hero(
-
               tag: "Antonia Font",
-              child:CircleAvatar(
+              child: CircleAvatar(
                   backgroundImage: NetworkImage(
                       "https://randomuser.me/api/portraits/women/44.jpg")),
             ),
@@ -34,20 +33,30 @@ class Home extends StatelessWidget {
         ),*/
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: const [
-            DrawerHeader(
-                decoration: BoxDecoration(
-                  color:Color(0xFFF896D8),
-                ),
-                child: Text("Menu")),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const SizedBox(
+              width: 320,
+              height: 150,
+              child: DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Color(0xFFF896D8),
+                  ),
+                  child: Text("Menu")),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfilePage()));
+              },
+              child: const Text('Ir perfil'),
+            ),
           ],
-
         ),
-
-
-
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -73,7 +82,10 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "Mas detalles",
-                  style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Colors.blue),
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      ?.copyWith(color: Colors.blue),
                 ),
               ),
               const SizedBox(
