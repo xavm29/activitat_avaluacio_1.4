@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const ProfilePage()));
             },
             child: const Hero(
-              
+
               tag: "Antonia Font",
               child:CircleAvatar(
                   backgroundImage: NetworkImage(
@@ -25,13 +25,29 @@ class Home extends StatelessWidget {
             ),
           ),
         ],
-        leading: IconButton(
+        /*leading: IconButton(
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ProfilePage()));
           },
           icon: const Icon(Icons.menu),
+        ),*/
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const [
+            DrawerHeader(
+                decoration: BoxDecoration(
+                  color:Color(0xFFF896D8),
+                ),
+                child: Text("Menu")),
+          ],
+
         ),
+
+
+
       ),
       body: SingleChildScrollView(
         child: Padding(
