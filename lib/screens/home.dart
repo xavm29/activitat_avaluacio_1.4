@@ -60,24 +60,24 @@ class Home extends StatelessWidget {
                   style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Colors.blue),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "Utimas actividades",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
               Card(
                 child: ListTile(
-                  leading: Icon(Icons.directions_run),
+                  leading: const Icon(Icons.directions_run),
                   title: Text(
                     "Running",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  subtitle: Text(
+                  subtitle: const Text(
                     "Ayer 19:20",
                   ),
                   trailing: Text(" 7200Km",
@@ -86,12 +86,12 @@ class Home extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                  leading: Icon(Icons.directions_run),
+                  leading: const Icon(Icons.directions_run),
                   title: Text(
                     "Running",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  subtitle: Text(
+                  subtitle: const Text(
                     "Ayer 19:20",
                   ),
                   trailing: Text(" 7200Km",
@@ -100,12 +100,12 @@ class Home extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                  leading: Icon(Icons.directions_run),
+                  leading: const Icon(Icons.directions_run),
                   title: Text(
                     "Running",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  subtitle: Text(
+                  subtitle: const Text(
                     "Ayer 19:20",
                   ),
                   trailing: Text(" 7200Km",
@@ -113,26 +113,24 @@ class Home extends StatelessWidget {
                 ),
               ),
               Center(
-                child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CircularPercentIndicator(
-                      radius: 60.0,
-                      lineWidth: 13.0,
-                      animation: true,
-                      percent: 0.7,
-                      center: Text(
-                        "70.0%",
-                        style: new TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20.0),
-                      ),
-                      footer: Text(
-                        "Objetivo mensual",
-                        style: Theme.of(context).textTheme.headline5,
-                      ),
-                      circularStrokeCap: CircularStrokeCap.round,
-                      progressColor: Theme.of(context).primaryColor,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircularPercentIndicator(
+                    radius: 60.0,
+                    lineWidth: 13.0,
+                    animation: true,
+                    percent: 0.7,
+                    center: const Text(
+                      "70.0%",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20.0),
                     ),
+                    footer: Text(
+                      "Objetivo mensual",
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    circularStrokeCap: CircularStrokeCap.round,
+                    progressColor: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -141,7 +139,7 @@ class Home extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Inicio',
