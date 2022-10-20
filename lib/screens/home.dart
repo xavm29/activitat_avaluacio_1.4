@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:untitled/screens/profilepage.dart';
+import 'package:untitled/screens/profile_page.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,16 +11,26 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Fitness Time"),
         actions: <Widget>[
-          CircleAvatar(
-              backgroundImage: NetworkImage(
-                  "https://randomuser.me/api/portraits/women/44.jpg")),
+          InkWell(
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+            },
+            child: const Hero(
+              
+              tag: "Antonia Font",
+              child:CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://randomuser.me/api/portraits/women/44.jpg")),
+            ),
+          ),
         ],
         leading: IconButton(
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ProfilePage()));
           },
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
         ),
       ),
       body: SingleChildScrollView(
