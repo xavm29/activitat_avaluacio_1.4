@@ -47,84 +47,70 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Card(
-                    elevation: 0,
-                    color: Theme.of(context).colorScheme.secondary,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(Icons.access_time),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                  SizedBox(
+                    width: 100,
+                    height: 110,
+                    child: Card(
+                      elevation: 0,
+                      color: Theme.of(context).colorScheme.secondary,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.access_time),
+                          Text(
                             "Time",
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                          Text(
                             "2h 45'",
                             style: Theme.of(context).textTheme.headline5,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                  Card(
-                    elevation: 0,
-                    color: Theme.of(context).colorScheme.secondary,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(Icons.place),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                  SizedBox(
+                    width: 100,
+                    height: 110,
+                    child: Card(
+                      elevation: 0,
+                      color: Theme.of(context).colorScheme.secondary,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.place),
+                          Text(
                             "Km",
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                          Text(
                             "221,4'",
                             style: Theme.of(context).textTheme.headline5,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                  Card(
-                    elevation: 0,
-                    color: Theme.of(context).colorScheme.secondary,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(Icons.directions_run),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                  SizedBox(
+                    width: 100,
+                    height: 110,
+                    child: Card(
+                      elevation: 0,
+                      color: Theme.of(context).colorScheme.secondary,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.directions_run),
+                          Text(
                             "Activities",
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                          Text(
                             "42",
                             style: Theme.of(context).textTheme.headline5,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
