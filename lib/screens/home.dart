@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:untitled/models/activitie.dart';
 import 'package:untitled/screens/profile_page.dart';
+import '../models/profile.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  List<Profile> profiles =[
+    Profile(1, "Paco")
+  ];
+  List<Activity> activities= [
+    Activity(1,"runing", 10, 10)
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +80,7 @@ class Home extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Hola diana",
+                  "Hola ${profiles.first.name}",
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),
@@ -102,7 +115,8 @@ class Home extends StatelessWidget {
                 child: ListTile(
                   leading: const Icon(Icons.directions_run),
                   title: Text(
-                    "Running",
+                    // solo es una atividad mira de hacer un bucle para que se vean 3
+                    activities.first.activities,
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   subtitle: const Text(
@@ -188,3 +202,6 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+
+
