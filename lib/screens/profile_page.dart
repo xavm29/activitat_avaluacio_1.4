@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/inherited_profile.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
@@ -8,10 +10,21 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final double _currentSliderValue = 40;
+  double _currentSliderValue = 40;
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final InheritedProfile data =
+        context.dependOnInheritedWidgetOfExactType<InheritedProfile>()!;
+    int kmtotal = 0;
+    int Tempstotal = 0;
+
+    for (var activity in data.activities) {
+      kmtotal += activity.kilometers;
+      Tempstotal += activity.time;
+    }
+    ;
     return Scaffold(
       appBar: AppBar(
         title: const Text("My Profile"),
@@ -30,8 +43,11 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Antonia Font",
+              child: TextField(
+                controller: myController,
+                onChanged: (text) {
+                  data.profile.name = text;
+                },
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
@@ -62,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                           Text(
-                            "2h 45'",
+                            "$Tempstotal",
                             style: Theme.of(context).textTheme.headline5,
                           ),
                         ],
@@ -80,11 +96,11 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           const Icon(Icons.place),
                           Text(
-                            "Km",
+                            "KM",
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                           Text(
-                            "221,4'",
+                            "$kmtotal",
                             style: Theme.of(context).textTheme.headline5,
                           ),
                         ],
@@ -106,7 +122,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                           Text(
-                            "42",
+                            "${data.activities.length}",
                             style: Theme.of(context).textTheme.headline5,
                           ),
                         ],
@@ -126,13 +142,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   Slider(
-                    value: _currentSliderValue,
+                    value: data.profile.userheight.toDouble(),
                     min: 0,
-                    max: 150,
-                    onChanged: (value) {},
+                    max: 180,
+                    onChanged: (double value) {
+                      setState(() {
+                        data.profile.userheight = value.toInt();
+                      });
+                    },
                   ),
                   Text(
-                    "150cm",
+                    "180cm",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],
@@ -154,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     onChanged: (value) {},
                   ),
                   Text(
-                    "50 Kg",
+                    "100 Kg",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],

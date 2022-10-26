@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:untitled/models/activitie.dart';
 import 'package:untitled/screens/profile_page.dart';
+import 'package:untitled/widgets/inherited_profile.dart';
 import '../models/profile.dart';
 
 class Home extends StatefulWidget {
@@ -12,23 +13,28 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Profile> profiles =[
-    Profile(1, "Paco")
-  ];
-  List<Activity> activities= [
-    Activity(1,"runing", 10, 10)
-  ];
+
   @override
   Widget build(BuildContext context) {
+    final InheritedProfile data =
+    context.dependOnInheritedWidgetOfExactType<InheritedProfile>()!;
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Fitness Time"),
         actions: <Widget>[
           InkWell(
-            onTap: () {
-              Navigator.push(context,
+            onTap: () async {
+              await Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const ProfilePage()));
+              setState(() {
+
+              });
+
             },
+
             child: const Hero(
               tag: "Antonia Font",
               child: CircleAvatar(
@@ -80,7 +86,7 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Hola ${profiles.first.name}",
+                  "Hola ${data.profile.name}",
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),
@@ -111,12 +117,12 @@ class _HomeState extends State<Home> {
                   style: Theme.of(context).textTheme.headline6,
                 ),
               ),
-              Card(
+              ...data.activities.map((activity) => Card(
                 child: ListTile(
                   leading: const Icon(Icons.directions_run),
                   title: Text(
                     // solo es una atividad mira de hacer un bucle para que se vean 3
-                    activities.first.activities,
+                    activity.activities,
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   subtitle: const Text(
@@ -125,35 +131,9 @@ class _HomeState extends State<Home> {
                   trailing: Text(" 7200Km",
                       style: Theme.of(context).textTheme.headline5),
                 ),
-              ),
-              Card(
-                child: ListTile(
-                  leading: const Icon(Icons.directions_run),
-                  title: Text(
-                    "Running",
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  subtitle: const Text(
-                    "Ayer 19:20",
-                  ),
-                  trailing: Text(" 7200Km",
-                      style: Theme.of(context).textTheme.headline5),
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  leading: const Icon(Icons.directions_run),
-                  title: Text(
-                    "Running",
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  subtitle: const Text(
-                    "Ayer 19:20",
-                  ),
-                  trailing: Text(" 7200Km",
-                      style: Theme.of(context).textTheme.headline5),
-                ),
-              ),
+              )).toList(),
+
+
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

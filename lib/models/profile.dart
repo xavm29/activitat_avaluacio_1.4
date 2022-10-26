@@ -1,5 +1,7 @@
 class Profile {
   final int id;
-  final String name;
-  Profile(this.id,this.name);
+   String name;
+   int userheight;
+   int userweight;
+  Profile(this.id,this.name,this.userheight,this.userweight);
 }
