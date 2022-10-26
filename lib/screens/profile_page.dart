@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/inherited_profile.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -10,7 +9,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  double _currentSliderValue = 40;
   final myController = TextEditingController();
 
   @override
@@ -133,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -145,6 +143,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     value: data.profile.userheight.toDouble(),
                     min: 0,
                     max: 180,
+                    label:data.profile.userheight.round().toString(),
                     onChanged: (double value) {
                       setState(() {
                         data.profile.userheight = value.toInt();
@@ -159,7 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -168,10 +167,16 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   Slider(
-                    value: _currentSliderValue,
+                    value: data.profile.userweight.toDouble(),
+                    label: data.profile.userweight.round().toString(),
                     min: 0,
                     max: 150,
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      setState(() {
+                        data.profile.userweight = value.toInt();
+                      });
+
+                    },
                   ),
                   Text(
                     "100 Kg",
