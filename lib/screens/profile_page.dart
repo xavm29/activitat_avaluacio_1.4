@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../widgets/inherited_profile.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -39,12 +40,16 @@ class _ProfilePageState extends State<ProfilePage> {
                       'https://randomuser.me/api/portraits/women/44.jpg'),
                   radius: 100),
             ),
+              Text(data.profile.name,style: Theme.of(context).textTheme.headline4,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 controller: myController,
                 onChanged: (text) {
                   data.profile.name = text;
+                  setState(() {
+
+                  });
                 },
                 style: Theme.of(context).textTheme.headline4,
               ),
@@ -143,7 +148,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     value: data.profile.userheight.toDouble(),
                     min: 0,
                     max: 180,
-                    label:data.profile.userheight.round().toString(),
                     onChanged: (double value) {
                       setState(() {
                         data.profile.userheight = value.toInt();
@@ -151,7 +155,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     },
                   ),
                   Text(
-                    "180cm",
+                    data.profile.userheight.round().toString(),
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],
@@ -175,11 +179,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       setState(() {
                         data.profile.userweight = value.toInt();
                       });
-
                     },
                   ),
                   Text(
-                    "100 Kg",
+                    data.profile.userweight.round().toString(),
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],

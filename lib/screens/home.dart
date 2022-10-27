@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:untitled/models/activitie.dart';
 import 'package:untitled/screens/profile_page.dart';
 import 'package:untitled/widgets/inherited_profile.dart';
-import '../models/profile.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,13 +11,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   @override
   Widget build(BuildContext context) {
     final InheritedProfile data =
-    context.dependOnInheritedWidgetOfExactType<InheritedProfile>()!;
-
-
+        context.dependOnInheritedWidgetOfExactType<InheritedProfile>()!;
 
     return Scaffold(
       appBar: AppBar(
@@ -29,12 +24,8 @@ class _HomeState extends State<Home> {
             onTap: () async {
               await Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const ProfilePage()));
-              setState(() {
-
-              });
-
+              setState(() {});
             },
-
             child: const Hero(
               tag: "Antonia Font",
               child: CircleAvatar(
@@ -117,23 +108,23 @@ class _HomeState extends State<Home> {
                   style: Theme.of(context).textTheme.headline6,
                 ),
               ),
-              ...data.activities.map((activity) => Card(
-                child: ListTile(
-                  leading: const Icon(Icons.directions_run),
-                  title: Text(
-                    // solo es una atividad mira de hacer un bucle para que se vean 3
-                    activity.activities,
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  subtitle: const Text(
-                    "Ayer 19:20",
-                  ),
-                  trailing: Text(" 7200Km",
-                      style: Theme.of(context).textTheme.headline5),
-                ),
-              )).toList(),
-
-
+              ...data.activities
+                  .map((activity) => Card(
+                        child: ListTile(
+                          leading: const Icon(Icons.directions_run),
+                          title: Text(
+                            // solo es una atividad mira de hacer un bucle para que se vean 3
+                            activity.activities,
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
+                          subtitle: const Text(
+                            "Ayer 19:20",
+                          ),
+                          trailing: Text(" 7200Km",
+                              style: Theme.of(context).textTheme.headline5),
+                        ),
+                      ))
+                  .toList(),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -182,6 +173,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-
-
